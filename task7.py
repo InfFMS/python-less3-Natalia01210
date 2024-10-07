@@ -5,3 +5,24 @@
 # которая начинается с двух единиц и каждое следующее число
 # равно сумме двух предыдущих: 1, 1, 2, 3, 5, 8, 13, …
 
+
+def F(n):
+    a, b = 1, 1
+    while(b < n):
+        a, b = b, a + b
+    return b == n
+now = int(input())
+mn = now
+while(now != 0):
+    if(F(now)):
+        if(F(mn)):
+            mn = min(mn, now)
+        else:
+            mn = now
+    now = int(input())
+if(F(mn)):
+    print('Минимальное число Фибоначчи:', mn)
+else:
+    print("нет")
+
+
